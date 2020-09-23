@@ -1,3 +1,91 @@
-<h1>
-	Hello World!
-</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      [visible='true'] {
+        visibility: visible;
+      }
+      [visible='false'] {
+        visibility: hidden;
+      }
+      body {
+        background-color: black;
+        width: 1080px;
+        height: 1920px;
+      }
+      .title {
+        color: white;
+        font-size: 130px;
+        font-family: 'Do Hyeon', sans-serif;
+        text-align: center;
+      }
+      #main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="title">
+        Hello World!
+      </div>
+    </div>
+  </body>
+  <script>
+    var ORG_PAGE = null;
+    const refresh_sensor = async () => {
+      if (ORG_PAGE === null) {
+        let res = await fetch(
+          'https://raw.githubusercontent.com/DGSW-FLUT/School-Public-Board/master/index.html'
+        );
+        if (res.ok) ORG_PAGE = await res.text();
+        else console.log(res);
+      } else {
+        let res = await fetch(
+          'https://raw.githubusercontent.com/DGSW-FLUT/School-Public-Board/master/index.html'
+        );
+        if (res.ok) {
+          let NEW_PAGE = await res.text();
+          if (ORG_PAGE !== NEW_PAGE) {
+            window.location.reload();
+          }
+        } else console.log(res);
+      }
+    };
+
+    const get_digital_clock_string = () => {
+      const date = new Date();
+      const now_hour = date.getHours();
+      const now_minute = date.getMinutes();
+      let hour_str = '00' + String(now_hour);
+      let minute_str = '00' + String(now_minute);
+      hour_str = hour_str.substr(hour_str.length - 2, 2);
+      minute_str = minute_str.substr(minute_str.length - 2, 2);
+      return hour_str + ':' + minute_str;
+    };
+    const main = () => {
+      const date = new Date();
+      const now_hour = date.getHours();
+      const now_minute = date.getMinutes();
+      const main_dom = document.getElementById('main');
+
+      if (now_hour <= 7 || now_hour >= 22) {
+        main_dom.setAttribute('visible', 'false');
+        return;
+      }
+      main_dom.getElementsByClassName('title')[0].innerHTML =
+        'Hello World!<br/>' + get_digital_clock_string();
+      main_dom.setAttribute('visible', 'true');
+    };
+    setInterval(main, 100);
+    setInterval(refresh_sensor, 10000);
+  </script>
+</html>
