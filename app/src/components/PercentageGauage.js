@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as S from './PercentageGauage.style';
-import moment, { now } from 'moment';
+import moment from 'moment';
 
 function inject_date() {
   return moment([2020, 9 - 1, 13, 18, 30]);

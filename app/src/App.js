@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 
 import { PercentageGauage } from './components/PercentageGauage';
 import { MealView } from './components/MealView';
@@ -10,8 +9,7 @@ import moment from 'moment';
 function App() {
   const [nowDate, set_nowDate] = useState(moment());
   useEffect(() => {
-    let interval = null;
-    interval = setInterval(() => set_nowDate(moment()), 500);
+    setInterval(() => set_nowDate(moment()), 500);
   });
   return (
     <S.Container className='App'>
