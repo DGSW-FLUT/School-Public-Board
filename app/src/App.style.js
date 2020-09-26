@@ -12,6 +12,7 @@ export const Container = styled.div`
   padding-top: 3rem;
   padding-bottom: 3rem;
   overflow: hidden;
+  cursor: none;
 `;
 
 export const Title = styled.h2`

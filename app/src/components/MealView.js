@@ -6,7 +6,7 @@ const raw_api_link =
 let api_link = null;
 
 function get_date_str(date) {
-  return date.toISOString().substr(0, 10).replaceAll('-', '');
+  return date.toISOString().substr(0, 10).replace(/-/g, '');
 }
 
 function IsPastMeal(row) {
@@ -23,9 +23,9 @@ function IsPastMeal(row) {
 
 function filterMeal(meal_text) {
   for (let k = 19; k > 0; --k) {
-    meal_text = meal_text.replaceAll(`${k}.`, '');
+    meal_text = meal_text.replace(`${k}.`, '');
   }
-  return meal_text.replaceAll('<br/>', '\n');
+  return meal_text.replace(/<br\/>/g, '\n');
 }
 
 class MealView extends Component {
