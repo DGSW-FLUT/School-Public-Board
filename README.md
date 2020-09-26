@@ -6,7 +6,7 @@
 
 `npm i` 로 초기에 필요한 node_modules를 설치 할 수 있습니다.  
 `npm run-script start` 로 웹 사이트를 실행 할 수 있습니다.(코드 변경시 자동 적용)  
-`npm run-script build` 로 Production에서 사용할 웺 사이트를 빌드 할 수 있습니다.
+`npm run-script build` 로 Production에서 사용할 웹 사이트를 빌드 할 수 있습니다.
 
 ## Production
 
