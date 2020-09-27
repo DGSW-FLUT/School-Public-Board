@@ -7,7 +7,7 @@ import { inject_date, eject_date } from './components/TimeTable';
 
 import moment from 'moment';
 
-function App() {
+function App(props) {
   const [nowDate, set_nowDate] = useState(moment());
   useEffect(() => {
     setInterval(() => {
