@@ -90,3 +90,4 @@ typings/
 build/
 
 public/open_api_key
+.firebase
