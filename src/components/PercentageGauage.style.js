@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
   margin-top: 1rem;
   font-size: 3.5rem;
-  color: #fff;
+  color: white;
 `;
 
 export const Bar = styled.div`
@@ -13,6 +13,7 @@ export const Bar = styled.div`
   flex-direction: row;
   margin-top: 2.5rem;
   margin-bottom: 3rem;
+  margin-left: 2rem;
 `;
 
 export const OutterBar = styled.div`
