@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   margin-top: 1rem;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: white;
 `;
 
