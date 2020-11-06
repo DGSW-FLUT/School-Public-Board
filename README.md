@@ -16,11 +16,15 @@
 `npx firebase init` 으로 Firebase Hosting을 불러옵니다. public 폴더 이름은 build로 합니다.
 `npx firebase deploy` 로 Firebase Hosting에 업로드 합니다.
 
+### 자동 웹 사이트 실행
+`/etc/xdg/lxsession/LXDE-pi/autostart` 에
+`chromium-browser --start-fullscreen --start-maximized --app=https://public-screen.web.app/`를 추가합니다.
+
 ## 기능
 
 - [x] 현재 시간 표시
 - [x] 집 갈 때 까지 남은 시간 표시
-- [ ] 집 가는 시간 자동 설정
+- [x] 집 가는 시간 자동 설정
 - [x] 급식 표시
 
 ## 이슈
