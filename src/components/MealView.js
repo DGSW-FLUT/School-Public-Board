@@ -17,7 +17,7 @@ class MealView extends Component {
 
     componentDidMount() {
         this.update();
-        this.interval = setTimeout(() => this.update(), 60);
+        this.interval = setTimeout(async () => await this.update(), 60 * 1000);
     }
 
     componentWillUnmount() {
