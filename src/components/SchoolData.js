@@ -15,11 +15,10 @@ async function get_meal_data() {
     const today = moment();
     const today_YMD = today.format(format_date);
 
-    const data = await (
-        await fetch(
-            `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${await get_api_key()}&ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240393&MLSV_FROM_YMD=${today_YMD}&Type=json`
-        )
-    ).json();
+    const res = await fetch(
+        `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${await get_api_key()}&ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240393&MLSV_FROM_YMD=${today_YMD}&Type=json`
+    );
+    const data = await res.json();
 
     function filterMeal(row) {
         if (row.MLSV_YMD > today_YMD) return true;
@@ -58,13 +57,12 @@ async function get_meal_data() {
 }
 
 async function get_days_with_meal_in_range(start, end) {
-    const data = await (
-        await fetch(
-            `https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240393&Type=json&pSize=300&KEY=${await get_api_key()}&MLSV_FROM_YMD=${start.format(
-                format_date
-            )}&MLSV_TO_YMD=${end.format(format_date)}`
-        )
-    ).json();
+    const res = await fetch(
+        `https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240393&Type=json&pSize=300&KEY=${await get_api_key()}&MLSV_FROM_YMD=${start.format(
+            format_date
+        )}&MLSV_TO_YMD=${end.format(format_date)}`
+    );
+    const data = await res.json();
 
     let days_with_meal = {};
 
